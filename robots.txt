@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dvbph9vzc2.github.io/Live-Lotto-Presale/sitemap.xml
