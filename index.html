@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Lotto Draw Results — US Lottery Checker, Scanner &amp; Number Picker | Pre-sale $9.9</title>
+<meta name="description" content="Live Lotto Draw Results: live US lottery results for all 50 states, ticket scanner, lucky number picker, and secure ticket buying via Jackpocket. Claim lifetime access for $9.9 (reg. $199) in the pre-sale.">
+<meta property="og:title" content="Live Lotto Draw Results — Pre-sale: Lifetime access $9.9">
+<meta property="og:description" content="Every US lottery result, ticket scanner, and number picker in one app. Pre-sale lifetime code $9.9 (reg. $199).">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/screenshots/results-megamillions.jpg">
+<link rel="icon" type="image/webp" href="assets/img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red-950:#220b0b; --red-900:#3f1010; --red-800:#7f1d1d; --red-700:#b91c1c; --red-600:#dc2626;
+  --gold-500:#f0a92e; --gold-400:#f7be55; --gold-100:#fdf3df;
+  --ink:#1a1212; --muted:#6a5e5e; --line:#ece5e5; --bg:#fdfbfb; --card:#ffffff;
+  --radius:18px; --shadow:0 20px 60px -20px rgba(64,16,16,.25);
+  --font-d:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-b:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--font-d);line-height:1.15;letter-spacing:-.02em}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red-700);margin-bottom:16px}
+.eyebrow::before{content:"";width:26px;height:3px;border-radius:2px;background:var(--gold-500)}
+.sec-title{font-size:clamp(28px,4vw,44px);font-weight:800;margin-bottom:14px}
+.sec-sub{color:var(--muted);font-size:18px;max-width:640px}
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);background:rgba(251,253,251,.82);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--font-d);font-weight:800;font-size:19px}
+.brand img{width:40px;height:40px;border-radius:11px;box-shadow:0 6px 16px -6px rgba(64,16,16,.4)}
+.nav-links{display:flex;gap:30px;font-weight:600;font-size:15px;color:#33413a}
+.nav-links a:hover{color:var(--red-700)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--font-d);font-weight:700;border-radius:14px;cursor:pointer;border:0;transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:#3d2703;padding:15px 30px;font-size:16px;box-shadow:0 14px 30px -10px rgba(240,169,46,.55)}
+.btn-red{background:var(--red-800);color:#fff;padding:15px 30px;font-size:16px;box-shadow:0 14px 30px -12px rgba(127,29,29,.5)}
+.btn-sm{padding:11px 20px;font-size:14px}
+@media(max-width:860px){.nav-links{display:none}}
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:radial-gradient(1100px 520px at 85% -10%,rgba(240,169,46,.22),transparent 60%),linear-gradient(160deg,var(--red-950),var(--red-900) 70%);color:#fff;padding:150px 0 90px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+@media(max-width:960px){.hero .wrap{grid-template-columns:1fr}}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(240,169,46,.14);border:1px solid rgba(240,169,46,.45);color:var(--gold-400);font-weight:700;font-size:14px;padding:9px 18px;border-radius:100px;margin-bottom:26px}
+.hero-badge .dot{width:9px;height:9px;border-radius:50%;background:var(--gold-500);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{font-size:clamp(38px,5.4vw,62px);font-weight:800;margin-bottom:20px}
+.hero h1 .gold{color:var(--gold-400)}
+.hero p.lead{font-size:19px;color:#f2d9d9;max-width:520px;margin-bottom:34px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+.hero-note{font-size:14px;color:#d9b3b3}
+.hero-note strong{color:#fff}
+/* lottery balls deco */
+.balls{position:absolute;opacity:.5;pointer-events:none}
+.ball{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:800;color:#3d2703;background:radial-gradient(circle at 32% 28%,#ffe9bd,var(--gold-500) 70%);box-shadow:inset -4px -6px 12px rgba(0,0,0,.18)}
+/* phone */
+.phone-stage{display:flex;justify-content:center;position:relative}
+.phone{width:300px;border-radius:46px;background:#0d0d0f;padding:12px;box-shadow:0 40px 90px -30px rgba(0,0,0,.6),0 0 0 2px rgba(240,169,46,.25);transform:rotate(2deg)}
+.phone img{border-radius:36px;aspect-ratio:9/19.3;object-fit:cover;object-position:top}
+.phone-glow{position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,46,.35),transparent 65%);filter:blur(10px);z-index:-0;top:20%}
+.float-card{position:absolute;background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px;box-shadow:var(--shadow);font-size:13px;font-weight:600;display:flex;align-items:center;gap:10px}
+.float-card .ic{width:34px;height:34px;border-radius:10px;background:var(--gold-100);display:flex;align-items:center;justify-content:center;font-size:18px}
+.fc1{top:12%;left:-4%;animation:float 5s ease-in-out infinite}
+.fc2{bottom:14%;right:-2%;animation:float 6s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@media(max-width:960px){.fc1{left:2%}.fc2{right:2%}}
+/* ---------- logos/stats ---------- */
+.stats{border-bottom:1px solid var(--line);background:#fff}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:44px 24px;text-align:center}
+.stat b{font-family:var(--font-d);font-size:34px;color:var(--red-800);display:block}
+.stat span{color:var(--muted);font-size:14px;font-weight:500}
+@media(max-width:700px){.stats .wrap{grid-template-columns:repeat(2,1fr)}}
+/* ---------- features ---------- */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+@media(max-width:900px){.feat-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.feat-grid{grid-template-columns:1fr}}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;transition:transform .18s ease,box-shadow .18s ease}
+.feat:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.feat .ic{width:54px;height:54px;border-radius:16px;background:linear-gradient(135deg,var(--red-800),var(--red-600));display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:20px}
+.feat h3{font-size:19px;margin-bottom:10px}
+.feat p{color:var(--muted);font-size:15px}
+/* ---------- screenshots ---------- */
+.shots{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.shot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:48px}
+@media(max-width:900px){.shot-grid{grid-template-columns:1fr 1fr}}
+.shot{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.shot .imgbox{aspect-ratio:9/16;overflow:hidden;background:#0d0d0f}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .4s ease}
+.shot:hover img{transform:scale(1.04)}
+.shot .cap{padding:16px 18px;font-weight:600;font-size:15px}
+.shot .cap small{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:4px}
+/* ---------- how ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+@media(max-width:800px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;position:relative}
+.step .n{font-family:var(--font-d);font-size:15px;font-weight:800;color:var(--gold-500);background:var(--red-950);width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.step h3{font-size:19px;margin-bottom:10px}
+.step p{color:var(--muted);font-size:15px}
+/* ---------- pricing ---------- */
+.pricing{background:linear-gradient(160deg,var(--red-950),var(--red-900));color:#fff;position:relative;overflow:hidden}
+.pricing .eyebrow{color:var(--gold-400)}
+.price-card{max-width:560px;margin:48px auto 0;background:#fff;color:var(--ink);border-radius:24px;padding:48px 44px;text-align:center;box-shadow:0 40px 100px -30px rgba(0,0,0,.55);position:relative}
+.price-card .tag{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:#3d2703;font-family:var(--font-d);font-weight:800;font-size:13px;letter-spacing:.1em;padding:8px 22px;border-radius:100px;white-space:nowrap}
+.price-row{display:flex;align-items:baseline;justify-content:center;gap:14px;margin:18px 0 6px}
+.price-now{font-family:var(--font-d);font-size:64px;font-weight:800;color:var(--red-800)}
+.price-was{font-size:26px;color:#9aa7a0;text-decoration:line-through}
+.price-sub{color:var(--muted);font-size:15px;margin-bottom:26px}
+.check-list{text-align:left;max-width:380px;margin:0 auto 30px;list-style:none}
+.check-list li{padding:9px 0 9px 36px;position:relative;font-size:15px;font-weight:500}
+.check-list li::before{content:"✓";position:absolute;left:0;top:8px;width:24px;height:24px;border-radius:50%;background:#fbe4e4;color:var(--red-700);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13px}
+.countdown{display:flex;justify-content:center;gap:12px;margin:0 0 28px}
+.cd{background:var(--red-950);color:#fff;border-radius:12px;min-width:70px;padding:10px 6px}
+.cd b{font-family:var(--font-d);font-size:26px;display:block}
+.cd span{font-size:11px;letter-spacing:.08em;color:#d9b3b3}
+.count-label{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.guarantee{margin-top:22px;font-size:13px;color:var(--muted)}
+/* ---------- faq ---------- */
+.faq-list{max-width:760px;margin:44px auto 0}
+.faq{border:1px solid var(--line);border-radius:14px;margin-bottom:14px;background:#fff;overflow:hidden}
+.faq button{width:100%;background:none;border:0;font-family:var(--font-d);font-weight:700;font-size:17px;text-align:left;padding:22px 26px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--ink)}
+.faq button .pm{font-size:22px;color:var(--red-700);flex-shrink:0;transition:transform .2s}
+.faq .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:15px}
+.faq .a p{padding:0 26px 24px}
+.faq.open .a{max-height:300px}
+.faq.open .pm{transform:rotate(45deg)}
+/* ---------- final cta ---------- */
+.final{background:var(--bg);text-align:center}
+.final h2{font-size:clamp(30px,4.4vw,48px);margin-bottom:16px}
+.final p{color:var(--muted);font-size:18px;max-width:560px;margin:0 auto 32px}
+/* ---------- footer ---------- */
+footer{background:var(--red-950);color:#d9b3b3;padding:56px 0 36px;font-size:13px}
+.foot-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:36px}
+@media(max-width:700px){.foot-grid{grid-template-columns:1fr}}
+.foot-brand{display:flex;align-items:center;gap:12px;color:#fff;font-family:var(--font-d);font-weight:800;font-size:17px;margin-bottom:14px}
+.foot-brand img{width:36px;height:36px;border-radius:10px}
+.disclaimer{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;line-height:1.7;color:#b08d8d}
+.disclaimer strong{color:#f2d9d9}
+.copy{margin-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#a17f7f}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><img src="assets/img/logo.webp" alt="Live Lotto logo">Live Lotto</a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#pricing">Pre-sale</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="#pricing" class="btn btn-gold btn-sm">Get Lifetime — $9.9</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="balls">
+    <div class="ball" style="width:74px;height:74px;top:16%;left:4%;font-size:24px">7</div>
+    <div class="ball" style="width:52px;height:52px;top:66%;left:8%;font-size:18px">21</div>
+    <div class="ball" style="width:92px;height:92px;bottom:8%;right:5%;font-size:30px">9</div>
+  </div>
+  <div class="wrap">
+    <div>
+      <div class="hero-badge"><span class="dot"></span>Pre-sale is live — 95% off ends soon</div>
+      <h1>Every US Lottery Result.<br><span class="gold">One App.</span></h1>
+      <p class="lead">Live Lotto Draw Results tracks Powerball, Mega Millions and every state lottery — check results the second balls drop, scan tickets to see if you won, pick your numbers, and buy securely through Jackpocket.</p>
+      <div class="hero-ctas">
+        <a href="#pricing" class="btn btn-gold">Claim Lifetime Access — $9.9</a>
+        <a href="#features" class="btn" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);padding:15px 30px;font-size:16px">See how it works</a>
+      </div>
+      <p class="hero-note"><strong>One-time payment.</strong> No subscription · All 50 states · 30-day money-back guarantee</p>
+    </div>
+    <div class="phone-stage">
+      <div class="phone-glow"></div>
+      <div class="float-card fc1"><span class="ic">🎯</span><span>Mega Millions<br>$345M jackpot</span></div>
+      <div class="float-card fc2"><span class="ic">📷</span><span>Ticket scanned<br>YOU WON $100!</span></div>
+      <div class="phone"><img src="assets/screenshots/results-megamillions.jpg" alt="Live Lotto app showing Mega Millions results"></div>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><b>50</b><span>states covered</span></div>
+    <div class="stat"><b>100+</b><span>lottery games tracked</span></div>
+    <div class="stat"><b>Live</b><span>draw result updates</span></div>
+    <div class="stat"><b>$9.9</b><span>pre-sale lifetime (reg. $199)</span></div>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <span class="eyebrow">Features</span>
+    <h2 class="sec-title">Built for players who never want<br>to miss a winning number</h2>
+    <p class="sec-sub">Everything you do around the lottery — checking, scanning, picking, buying — finally in one fast, beautiful app.</p>
+    <div class="feat-grid">
+      <div class="feat"><div class="ic">⚡</div><h3>Live Draw Results</h3><p>Powerball, Mega Millions, Pick 3, Pick 4 and every state game — results, jackpot amounts and cash values updated the moment the balls drop.</p></div>
+      <div class="feat"><div class="ic">📷</div><h3>Scan to Check</h3><p>Point your camera at any ticket for instant number recognition and prize matching. Your photos never leave your phone.</p></div>
+      <div class="feat"><div class="ic">🎲</div><h3>Pick Numbers</h3><p>Quick Pick random lines or hand-pick your lucky numbers, then generate a printable playslip in one tap.</p></div>
+      <div class="feat"><div class="ic">🎟️</div><h3>Buy Securely</h3><p>Send your picks straight to Jackpocket, the licensed lottery courier, and buy official tickets without the store run.</p></div>
+      <div class="feat"><div class="ic">🔔</div><h3>My Numbers Alerts</h3><p>Save your lucky numbers once — the app auto-checks them against every draw and notifies you the instant you win.</p></div>
+      <div class="feat"><div class="ic">🗺️</div><h3>All 50 States</h3><p>Switch states in one tap. Local games, draw schedules, payouts and odds for every lottery in America.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="shots" id="screenshots">
+  <div class="wrap">
+    <span class="eyebrow">Screenshots</span>
+    <h2 class="sec-title">A first look inside the app</h2>
+    <p class="sec-sub">Real screens from the upcoming release — clean, fast, and designed around the draw.</p>
+    <div class="shot-grid">
+      <div class="shot"><div class="imgbox"><img src="assets/screenshots/results-megamillions.jpg" alt="Mega Millions results with jackpot amount" loading="lazy"></div><div class="cap">Live Results<small>Jackpots, cash values &amp; next drawing countdowns</small></div></div>
+      <div class="shot"><div class="imgbox"><img src="assets/screenshots/tab-pickbuy.jpg" alt="Pick and Buy screen with generated number lines" loading="lazy"></div><div class="cap">Pick &amp; Buy<small>Quick Pick lines, playslips &amp; Jackpocket checkout</small></div></div>
+      <div class="shot"><div class="imgbox"><img src="assets/screenshots/tab-scan.jpg" alt="Scan tab for ticket checking" loading="lazy"></div><div class="cap">Scan to Check<small>Instant on-device ticket recognition</small></div></div>
+      <div class="shot"><div class="imgbox"><img src="assets/screenshots/detail-powerball.jpg" alt="Powerball game detail with payouts and odds" loading="lazy"></div><div class="cap">Payouts &amp; Odds<small>Full prize tables for every game</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <span class="eyebrow">How pre-sale works</span>
+    <h2 class="sec-title">Three steps to lifetime access</h2>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Claim your code</h3><p>Pay $9.9 once during pre-sale and receive your personal lifetime license code by email. No subscription, ever.</p></div>
+      <div class="step"><div class="n">2</div><h3>Get launch access</h3><p>Pre-sale supporters are first in line — you'll get the download link and your code the moment the app goes live.</p></div>
+      <div class="step"><div class="n">3</div><h3>Play smarter</h3><p>Check results, scan tickets, track lucky numbers and buy through Jackpocket — premium forever, on us.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="wrap" style="text-align:center">
+    <span class="eyebrow">Pre-sale offer</span>
+    <h2 class="sec-title" style="color:#fff">Lock in lifetime access for $9.9</h2>
+    <p class="sec-sub" style="color:#f2d9d9;margin:0 auto">When the app launches, lifetime premium goes to $199. Pre-sale supporters never pay again.</p>
+    <div class="price-card">
+      <div class="tag">PRE-SALE · SAVE 95%</div>
+      <h3 style="font-size:20px">Lifetime Premium Code</h3>
+      <div class="price-row"><span class="price-now">$9.9</span><span class="price-was">$199</span></div>
+      <p class="price-sub">One-time payment · Yours forever</p>
+      <div class="count-label">Pre-sale ends in</div>
+      <div class="countdown" id="countdown">
+        <div class="cd"><b id="cd-d">00</b><span>DAYS</span></div>
+        <div class="cd"><b id="cd-h">00</b><span>HOURS</span></div>
+        <div class="cd"><b id="cd-m">00</b><span>MIN</span></div>
+        <div class="cd"><b id="cd-s">00</b><span>SEC</span></div>
+      </div>
+      <ul class="check-list">
+        <li>Lifetime premium — all features unlocked</li>
+        <li>Free updates forever, including new games</li>
+        <li>First access on launch day</li>
+        <li>Priority support from the founding team</li>
+        <li>30-day money-back guarantee</li>
+      </ul>
+      <!-- TODO: replace PAYMENT_URL with your Stripe Payment Link, Gumroad or Lemon Squeezy checkout URL -->
+      <a href="https://YOUR-PAYMENT-LINK" class="btn btn-gold" style="width:100%;font-size:18px;padding:18px">Claim My Lifetime Code — $9.9</a>
+      <p class="guarantee">🔒 Secure checkout · Instant code delivery by email</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div style="text-align:center"><span class="eyebrow">FAQ</span>
+    <h2 class="sec-title">Questions, answered</h2></div>
+    <div class="faq-list">
+      <div class="faq"><button>When does the app launch?<span class="pm">+</span></button><div class="a"><p>The app is in final testing now. Pre-sale supporters get the download link and their lifetime code the moment we launch — you'll be the very first to play.</p></div></div>
+      <div class="faq"><button>How do I receive my lifetime code?<span class="pm">+</span></button><div class="a"><p>Right after checkout you'll get a confirmation email with your personal license code. Enter it in the app on launch day to unlock premium forever.</p></div></div>
+      <div class="faq"><button>Is buying lottery tickets through the app legal?<span class="pm">+</span></button><div class="a"><p>Yes. Ticket purchases are processed by Jackpocket, a licensed lottery courier operating in select US states. The app's results, ticket scanner, number picker and tracking tools work in all 50 states regardless.</p></div></div>
+      <div class="faq"><button>Which lotteries are covered?<span class="pm">+</span></button><div class="a"><p>Powerball, Mega Millions, Lotto America and 100+ state games — Pick 3, Pick 4, Cash 5 and more — with live results, jackpots, payouts and odds.</p></div></div>
+      <div class="faq"><button>What if I change my mind?<span class="pm">+</span></button><div class="a"><p>Every pre-sale purchase is covered by a 30-day money-back guarantee. If the app isn't for you, email us and we'll refund you — no questions asked.</p></div></div>
+      <div class="faq"><button>Do you store photos of my tickets?<span class="pm">+</span></button><div class="a"><p>No. Ticket scanning and number recognition happen entirely on your device. Your photos are never uploaded or shared.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Your lucky numbers are waiting. 🍀</h2>
+    <p>Join the pre-sale today and get lifetime premium for the price of five lottery tickets.</p>
+    <a href="#pricing" class="btn btn-red">Get Lifetime Access — $9.9</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="assets/img/logo.webp" alt="Live Lotto logo">Live Lotto Draw Results</div>
+        <p>Live US lottery results, ticket scanner, number picker and secure ticket buying — all 50 states, one app.</p>
+      </div>
+      <div>
+        <p style="margin-bottom:10px"><strong style="color:#fff">Contact</strong></p>
+        <!-- TODO: replace with your real support email -->
+        <p>Support: <a href="mailto:support@example.com" style="color:var(--gold-400)">support@example.com</a></p>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> Live Lotto Draw Results is an independent product and is not affiliated with, endorsed by, or sponsored by any state lottery, the Multi-State Lottery Association (MUSL), Powerball, or Mega Millions. Results are for informational purposes only — always verify winning numbers with your official state lottery. Ticket purchases are fulfilled by Jackpocket, a third-party licensed lottery courier available in select states; availability varies by location.<br><br>
+      <strong>Play responsibly.</strong> Must be 18+ (21+ in some states) to purchase lottery tickets. If you or someone you know has a gambling problem, call or text <strong>1-800-GAMBLER</strong>.
+    </div>
+    <div class="copy"><span>© 2026 Live Lotto Draw Results. All rights reserved.</span><span>Made for players, by players.</span></div>
+  </div>
+</footer>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq button').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var item = btn.parentElement;
+    var wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq.open').forEach(function(f){ f.classList.remove('open'); });
+    if(!wasOpen) item.classList.add('open');
+  });
+});
+// Pre-sale countdown — TODO: set your real pre-sale end date
+var PRESALE_END = new Date('2026-11-15T23:59:59-05:00').getTime();
+function tick(){
+  var now = Date.now(), d = Math.max(0, PRESALE_END - now);
+  var days = Math.floor(d/864e5), hrs = Math.floor(d%864e5/36e5),
+      min = Math.floor(d%36e5/6e4), sec = Math.floor(d%6e4/1e3);
+  document.getElementById('cd-d').textContent = String(days).padStart(2,'0');
+  document.getElementById('cd-h').textContent = String(hrs).padStart(2,'0');
+  document.getElementById('cd-m').textContent = String(min).padStart(2,'0');
+  document.getElementById('cd-s').textContent = String(sec).padStart(2,'0');
+}
+tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>
