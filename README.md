@@ -27,6 +27,6 @@ pre-sale list). If you also want a free "notify me" form, add a
 
 ## Files
 
-- `index.html` — the whole page (copy, styles, countdown, FAQ)
-- `assets/img/logo.webp` — brand logo (deep green + gold)
-- `assets/screenshots/` — real app screenshots used on the page
+- `index.html` — the whole page (copy, styles, countdown, FAQ; logo inlined)
+- `assets/css/images-a.css`, `assets/css/images-b.css` — app screenshots
+  (web-optimized, embedded as data URIs so the site is fully self-contained)
