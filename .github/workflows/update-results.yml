@@ -1,0 +1,43 @@
+name: Update lottery results
+
+# Twice-daily refresh of winning numbers on the drawing-time pages.
+# Runs at 2:10:27 AM and 6:10:27 AM Eastern (cron is minute-precision, so we
+# sleep 27s). Cron times below are UTC for EDT (UTC-4); after Nov 1, 2026
+# (EST, UTC-5) they shift one hour earlier in ET — adjust if needed.
+on:
+  schedule:
+    - cron: '10 6 * * *'    # 2:10 AM ET (EDT)
+    - cron: '10 10 * * *'   # 6:10 AM ET (EDT)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch latest results from LotteryUSA
+        run: |
+          sleep 27
+          python3 tools/fetch_results.py
+
+      - name: Re-render pages
+        run: python3 tools/render_pages.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "lotto-results-bot"
+          git config user.email "lotto-results-bot@users.noreply.github.com"
+          git add data/results.json sitemap.xml \
+            powerball-drawing-time.html double-play-drawing-time.html \
+            mega-millions-drawing-time.html lotto-america-drawing-time.html \
+            millionaire-for-life-drawing-time.html
+          git diff --cached --quiet || git commit -m "Auto-update lottery results $(date -u +%F-%H%M)"
+          git push
